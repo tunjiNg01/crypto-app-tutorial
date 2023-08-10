@@ -14,7 +14,7 @@ struct MainView: View {
             // backgroud layer
             Color.theme.backgroundColor
                 .ignoresSafeArea()
-            
+            // content layer
             VStack{
                 mainHead
                 Spacer(minLength: 0)
