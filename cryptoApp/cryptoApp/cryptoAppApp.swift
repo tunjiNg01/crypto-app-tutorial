@@ -11,7 +11,11 @@ import SwiftUI
 struct cryptoAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack{
+                MainView()
+                   
+            }
+           
         }
     }
 }
