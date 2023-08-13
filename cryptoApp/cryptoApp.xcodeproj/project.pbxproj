@@ -20,6 +20,7 @@
 		52939E1F2A860ADE00889B16 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52939E1E2A860ADE00889B16 /* PreviewProvider.swift */; };
 		52939E212A86406600889B16 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52939E202A86406600889B16 /* Double.swift */; };
 		52C284E62A88EB0000161A29 /* MainViemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C284E52A88EB0000161A29 /* MainViemModel.swift */; };
+		52C284E92A8904EB00161A29 /* CoindataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C284E82A8904EB00161A29 /* CoindataServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		52939E1E2A860ADE00889B16 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		52939E202A86406600889B16 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		52C284E52A88EB0000161A29 /* MainViemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViemModel.swift; sourceTree = "<group>"; };
+		52C284E82A8904EB00161A29 /* CoindataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoindataServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		52939DF92A85190000889B16 /* cryptoApp */ = {
 			isa = PBXGroup;
 			children = (
+				52C284E72A89048D00161A29 /* Services */,
 				52939E192A858E1700889B16 /* Models */,
 				52939E082A85489600889B16 /* Extensions */,
 				52939E0B2A854F6D00889B16 /* Core */,
@@ -158,6 +161,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		52C284E72A89048D00161A29 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				52C284E82A8904EB00161A29 /* CoindataServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,6 +243,7 @@
 				52939E1D2A86094500889B16 /* CoinRowView.swift in Sources */,
 				52939DFD2A85190000889B16 /* ContentView.swift in Sources */,
 				52939E122A8550BD00889B16 /* MainView.swift in Sources */,
+				52C284E92A8904EB00161A29 /* CoindataServices.swift in Sources */,
 				52939E0A2A8548BE00889B16 /* Colors.swift in Sources */,
 				52939E162A85565100889B16 /* CircleButtonView.swift in Sources */,
 				52939DFB2A85190000889B16 /* cryptoAppApp.swift in Sources */,

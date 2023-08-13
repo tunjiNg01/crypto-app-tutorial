@@ -6,17 +6,22 @@
 //
 
 import Foundation
-
+import Combine
 
 class MainViemModel: ObservableObject {
     @Published var allCoin: [CoinModel] = []
     @Published var portfolioCoin: [CoinModel] = []
-    
+    let dataService = CoindataServices()
+    var cancellable = Set<AnyCancellable>()
     init() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
-            self.allCoin.append(DeveloperPreview.instance.coin)
-            self.portfolioCoin.append(DeveloperPreview.instance.coin)
+        addCoinSubscriber()
+    }
+    
+    private func addCoinSubscriber() {
+        dataService.$allCoins.sink { [weak self](returnedCoins) in
+            self?.allCoin = returnedCoins
         }
-       
+        .store(in: &cancellable)
+
     }
 }
