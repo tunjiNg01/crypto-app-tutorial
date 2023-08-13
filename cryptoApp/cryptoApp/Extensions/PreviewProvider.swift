@@ -18,7 +18,7 @@ extension PreviewProvider {
 class DeveloperPreview {
     static let instance = DeveloperPreview()
     private init(){}
-    
+    let mainVm = MainViemModel()
     let coin = CoinModel(
         id: "bitcoin",
         symbol: "btc",

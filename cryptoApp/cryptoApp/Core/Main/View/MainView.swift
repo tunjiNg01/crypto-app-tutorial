@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject private var vm: MainViemModel
     @State private var showPortfolio: Bool = false
     var body: some View {
         ZStack{
@@ -17,6 +18,16 @@ struct MainView: View {
             // content layer
             VStack{
                 mainHead
+               columnsTitle
+                if (!showPortfolio){
+                    allCoinList
+                    .transition(.move(edge: .leading))
+                }
+                
+                if(showPortfolio){
+                    portfolioCoinsList
+                        .transition(.move(edge: .trailing))
+                }
                 Spacer(minLength: 0)
                
             }
@@ -29,6 +40,7 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             MainView()
+                .environmentObject(dev.mainVm)
                 
         }
       
@@ -58,5 +70,40 @@ extension MainView {
                 }
         }
         .padding(.horizontal)
+    }
+    
+    private var allCoinList: some View {
+        List {
+            ForEach(vm.allCoin){ coin in
+                CoinRowView(coin: coin, showHolding: false)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+            }
+        }
+        .listStyle(.plain)
+    }
+    
+    private var portfolioCoinsList: some View {
+        List {
+            ForEach(vm.portfolioCoin){ coin in
+                CoinRowView(coin: coin, showHolding: true)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+            }
+        }
+        .listStyle(.plain)
+    }
+    private var columnsTitle: some View {
+        HStack {
+            Text("Coin")
+            Spacer()
+            if(showPortfolio){
+                Text("Holding")
+            }
+          
+            Text("Portfolio")
+                .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+        }
+        .font(.caption)
+            .foregroundColor(Color.theme.secondaryTextColor)
+            .padding(.horizontal)
     }
 }

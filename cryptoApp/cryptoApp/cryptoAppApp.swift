@@ -9,12 +9,14 @@ import SwiftUI
 
 @main
 struct cryptoAppApp: App {
+    @StateObject private var mainVm = MainViemModel()
     var body: some Scene {
         WindowGroup {
             NavigationStack{
                 MainView()
                    
             }
+            .environmentObject(mainVm)
            
         }
     }
