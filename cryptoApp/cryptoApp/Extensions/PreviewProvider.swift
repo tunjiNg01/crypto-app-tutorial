@@ -19,6 +19,10 @@ class DeveloperPreview {
     static let instance = DeveloperPreview()
     private init(){}
     let mainVm = MainViemModel()
+    
+    let stat1 = StatisticsModel(title: "Market Cap", value: "$12.5Bn", parcentageChange: 24.35)
+    let stat2 = StatisticsModel(title: "Total Volume", value: "$1.23tr")
+    let stat3 = StatisticsModel(title: "Porfolio value", value: "$250.00k", parcentageChange: -12.56)
     let coin = CoinModel(
         id: "bitcoin",
         symbol: "btc",
