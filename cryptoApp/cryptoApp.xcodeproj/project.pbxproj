@@ -25,6 +25,7 @@
 		52C284EF2A898DEA00161A29 /* CoinsImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C284EE2A898DEA00161A29 /* CoinsImageView.swift */; };
 		52C284F12A89905500161A29 /* CoinImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C284F02A89905500161A29 /* CoinImageService.swift */; };
 		52C284F32A89940100161A29 /* CoinImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C284F22A89940100161A29 /* CoinImageViewModel.swift */; };
+		52E843782A8A29B40094002E /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E843772A8A29B40094002E /* LocalFileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		52C284EE2A898DEA00161A29 /* CoinsImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsImageView.swift; sourceTree = "<group>"; };
 		52C284F02A89905500161A29 /* CoinImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageService.swift; sourceTree = "<group>"; };
 		52C284F22A89940100161A29 /* CoinImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageViewModel.swift; sourceTree = "<group>"; };
+		52E843772A8A29B40094002E /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				52C284EB2A8972C200161A29 /* NetworkManager.swift */,
+				52E843772A8A29B40094002E /* LocalFileManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				52939E1D2A86094500889B16 /* CoinRowView.swift in Sources */,
 				52939DFD2A85190000889B16 /* ContentView.swift in Sources */,
 				52C284EC2A8972C200161A29 /* NetworkManager.swift in Sources */,
+				52E843782A8A29B40094002E /* LocalFileManager.swift in Sources */,
 				52939E122A8550BD00889B16 /* MainView.swift in Sources */,
 				52C284E92A8904EB00161A29 /* CoindataServices.swift in Sources */,
 				52939E0A2A8548BE00889B16 /* Colors.swift in Sources */,
