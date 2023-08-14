@@ -18,6 +18,7 @@ struct MainView: View {
             // content layer
             VStack{
                 mainHead
+                SearchBarView(searchText: $vm.searchText)
                columnsTitle
                 if (!showPortfolio){
                     allCoinList

@@ -11,6 +11,7 @@ import Combine
 class MainViemModel: ObservableObject {
     @Published var allCoin: [CoinModel] = []
     @Published var portfolioCoin: [CoinModel] = []
+    @Published var searchText = ""
     let dataService = CoindataServices()
     var cancellable = Set<AnyCancellable>()
     init() {
