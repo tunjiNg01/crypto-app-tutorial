@@ -12,7 +12,7 @@ struct MainStatView: View {
     @Binding var showPortfolio: Bool
     var body: some View {
         HStack{
-            ForEach(vm.stats) { stat in
+            ForEach(vm.statistics) { stat in
                 StatisticView(stat: stat)
                     .frame(width: UIScreen.main.bounds.width / 3)
             }

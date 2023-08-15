@@ -31,6 +31,8 @@
 		52E8437F2A8A76870094002E /* StatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E8437E2A8A76870094002E /* StatisticsModel.swift */; };
 		52E843842A8A786B0094002E /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E843832A8A786B0094002E /* StatisticView.swift */; };
 		52E843862A8A81C30094002E /* MainStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E843852A8A81C30094002E /* MainStatView.swift */; };
+		52E843882A8B877D0094002E /* MarketDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E843872A8B877D0094002E /* MarketDataModel.swift */; };
+		52E8438A2A8B8B8F0094002E /* MarketDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E843892A8B8B8F0094002E /* MarketDataServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		52E8437E2A8A76870094002E /* StatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsModel.swift; sourceTree = "<group>"; };
 		52E843832A8A786B0094002E /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 		52E843852A8A81C30094002E /* MainStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStatView.swift; sourceTree = "<group>"; };
+		52E843872A8B877D0094002E /* MarketDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataModel.swift; sourceTree = "<group>"; };
+		52E843892A8B8B8F0094002E /* MarketDataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,7 @@
 			children = (
 				52939E1A2A85929F00889B16 /* CoinModel.swift */,
 				52E8437E2A8A76870094002E /* StatisticsModel.swift */,
+				52E843872A8B877D0094002E /* MarketDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 			children = (
 				52C284E82A8904EB00161A29 /* CoindataServices.swift */,
 				52C284F02A89905500161A29 /* CoinImageService.swift */,
+				52E843892A8B8B8F0094002E /* MarketDataServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -298,7 +304,9 @@
 				52939DFD2A85190000889B16 /* ContentView.swift in Sources */,
 				52C284EC2A8972C200161A29 /* NetworkManager.swift in Sources */,
 				52E843782A8A29B40094002E /* LocalFileManager.swift in Sources */,
+				52E8438A2A8B8B8F0094002E /* MarketDataServices.swift in Sources */,
 				52939E122A8550BD00889B16 /* MainView.swift in Sources */,
+				52E843882A8B877D0094002E /* MarketDataModel.swift in Sources */,
 				52C284E92A8904EB00161A29 /* CoindataServices.swift in Sources */,
 				52E843842A8A786B0094002E /* StatisticView.swift in Sources */,
 				52939E0A2A8548BE00889B16 /* Colors.swift in Sources */,
