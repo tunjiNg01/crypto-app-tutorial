@@ -18,7 +18,6 @@ struct cryptoAppApp: App {
         WindowGroup {
             NavigationStack{
                 MainView()
-                   
             }
             .environmentObject(mainVm)
            

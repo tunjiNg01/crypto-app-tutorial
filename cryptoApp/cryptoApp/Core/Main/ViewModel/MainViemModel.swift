@@ -13,8 +13,11 @@ class MainViemModel: ObservableObject {
     @Published var allCoin: [CoinModel] = []
     @Published var portfolioCoin: [CoinModel] = []
     @Published var searchText = ""
+    
     private let coinDataService = CoindataServices()
     private let marketDataService = MarketDataServices()
+    private let portfolioDataService = PortfolioDataService()
+    
     var cancellable = Set<AnyCancellable>()
     init() {
         addCoinSubscriber()
@@ -36,8 +39,25 @@ class MainViemModel: ObservableObject {
                 self?.statistics = returnStatsData
             }
             .store(in: &cancellable)
+        // Portfolio subscriber
+        $allCoin.combineLatest(portfolioDataService.$savedEntity)
+            .map { (coinModel, porfolioEntity) in
+                coinModel.compactMap { (coin) -> CoinModel? in
+                    guard let entity = porfolioEntity.first(where: {$0.coinID == coin.id})else {
+                        return nil
+                    }
+                    return coin.updateholdings(amount: entity.amount)
+                }
+            }
+            .sink { [weak self] (returnedCoin) in
+                self?.portfolioCoin = returnedCoin
+            }
+            .store(in: &cancellable)
     }
     
+    func updatePortfolio(coin: CoinModel, amount: Double){
+        portfolioDataService.updatePortfolio(coin: coin, amount: amount)
+    }
     private func filterCoins(text: String, coins: [CoinModel]) -> [CoinModel] {
         guard !text.isEmpty else {
             return coins
