@@ -11,6 +11,8 @@ struct MainView: View {
     @EnvironmentObject private var vm: MainViemModel
     @State private var showPortfolio: Bool = false
     @State private var showPortfolioView: Bool = false
+    @State private var selectedCoin: CoinModel? = nil
+    @State private var showDetailView: Bool = false
     var body: some View {
         ZStack{
             // backgroud layer
@@ -39,6 +41,7 @@ struct MainView: View {
                
             }
         }
+       
       
     }
 }
@@ -87,8 +90,13 @@ extension MainView {
     private var allCoinList: some View {
         List {
             ForEach(vm.allCoin){ coin in
-                CoinRowView(coin: coin, showHolding: false)
-                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                NavigationLink {
+                    CoinDetails(coin: coin)
+                } label: {
+                    CoinRowView(coin: coin, showHolding: false)
+                        .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                       
+                }
             }
         }
         .listStyle(.plain)
@@ -101,10 +109,17 @@ extension MainView {
         List {
             ForEach(vm.portfolioCoin){ coin in
                 CoinRowView(coin: coin, showHolding: true)
+                    .onTapGesture {
+                        segue(coin: coin)
+                    }
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
             }
         }
         .listStyle(.plain)
+    }
+    // to be implemented
+    private func segue(coin: CoinModel){
+        
     }
     private var columnsTitle: some View {
         HStack {
