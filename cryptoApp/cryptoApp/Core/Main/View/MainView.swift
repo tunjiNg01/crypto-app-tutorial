@@ -92,6 +92,9 @@ extension MainView {
             }
         }
         .listStyle(.plain)
+        .refreshable {
+            vm.reloadData()
+        }
     }
     
     private var portfolioCoinsList: some View {
@@ -105,14 +108,57 @@ extension MainView {
     }
     private var columnsTitle: some View {
         HStack {
-            Text("Coin")
+            HStackLayout(spacing: 4){
+                Text("Coin")
+                Image(systemName: "chevron.down")
+                    .opacity((vm.sortOptions == .rank || vm.sortOptions == .rankReverse) ? 1.0 : 0.0)
+                    .rotationEffect(Angle(degrees: vm.sortOptions == .rank ? 0: 180))
+            }.onTapGesture {
+                withAnimation(.default) {
+                    vm.sortOptions = vm.sortOptions == .rank ? .rankReverse : .rank
+                }
+               
+            }
+         
             Spacer()
             if(showPortfolio){
-                Text("Holding")
+                HStackLayout(spacing: 4){
+                    Text("Holding")
+                    Image(systemName: "chevron.down")
+                        .opacity((vm.sortOptions == .holdings || vm.sortOptions == .holdingReverse) ? 1.0 : 0.0)
+                        .rotationEffect(Angle(degrees: vm.sortOptions == .holdings ? 0: 180))
+                }
+                .onTapGesture {
+                    withAnimation(.default) {
+                        vm.sortOptions = vm.sortOptions == .holdings ? .holdingReverse : .holdings
+                    }
+                   
+                }
+              
             }
-          
-            Text("Portfolio")
-                .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+            HStackLayout(spacing: 4){
+              
+                Text("Price")
+                    .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+                Button {
+                    withAnimation(.linear(duration: 2.0)) {
+                        vm.reloadData()
+                    }
+                } label: {
+                    Image(systemName: "goforward")
+                }
+                .rotationEffect(Angle(degrees: vm.isLoading ? 360 : 0), anchor: .center)
+                Image(systemName: "chevron.down")
+                    .opacity((vm.sortOptions == .price || vm.sortOptions == .priceReverve) ? 1.0 : 0.0)
+                    .rotationEffect(Angle(degrees: vm.sortOptions == .price ? 0: 180))
+            }
+            .onTapGesture {
+                withAnimation(.default) {
+                    vm.sortOptions = vm.sortOptions == .price ? .priceReverve : .price
+                }
+              
+            }
+
         }
         .font(.caption)
             .foregroundColor(Color.theme.secondaryTextColor)
