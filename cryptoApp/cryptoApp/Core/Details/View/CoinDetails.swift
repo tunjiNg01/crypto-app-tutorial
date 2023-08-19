@@ -22,22 +22,23 @@ struct CoinDetails: View {
     }
     var body: some View {
         ScrollView{
-            VStack(spacing: 20){
-                Text("Chart")
-                    .frame(height: 150)
-                overText
-                Divider()
-                overviewStatGrid
-                additionalText
-                Divider()
-                additionalStatGrid
-            }
-            .padding()
-            .navigationTitle(coin.name)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                   topbarTrailingItem
+            VStack {
+                ChartView(coin: vm.coin)
+                VStack(spacing: 20){
+                    overText
+                    Divider()
+                    overviewStatGrid
+                    additionalText
+                    Divider()
+                    additionalStatGrid
                 }
+                .padding()
+                .navigationTitle(coin.name)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                       topbarTrailingItem
+                    }
+            }
             }
         }
     }
