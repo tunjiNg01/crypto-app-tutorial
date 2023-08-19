@@ -13,6 +13,7 @@ struct MainView: View {
     @State private var showPortfolioView: Bool = false
     @State private var selectedCoin: CoinModel? = nil
     @State private var showDetailView: Bool = false
+    @State private var showSettingsView: Bool = false
     var body: some View {
         ZStack{
             // backgroud layer
@@ -40,6 +41,9 @@ struct MainView: View {
                 Spacer(minLength: 0)
                
             }
+            .sheet(isPresented: $showSettingsView) {
+                SettingsView()
+            }
         }
        
       
@@ -64,6 +68,8 @@ extension MainView {
                 .onTapGesture {
                     if(showPortfolio){
                         showPortfolioView.toggle()
+                    }else{
+                        showSettingsView.toggle()
                     }
                 }
                 .background(
