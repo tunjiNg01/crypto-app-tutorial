@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CoinDetails: View {
     @StateObject private var vm: CoinDetailsViewModel
+    @State private var showFullDescription: Bool = false
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -27,10 +28,16 @@ struct CoinDetails: View {
                 VStack(spacing: 20){
                     overText
                     Divider()
+                    descriptionText
+                    
                     overviewStatGrid
                     additionalText
                     Divider()
                     additionalStatGrid
+                    webSection
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.headline)
+                    .tint(.blue)
                 }
                 .padding()
                 .navigationTitle(coin.name)
@@ -100,6 +107,45 @@ extension CoinDetails {
                 .font(.headline)
             CoinsImageView(coin: vm.coin)
                 .frame(width: 25)
+        }
+    }
+    
+    private var descriptionText: some
+    View {
+        ZStack{
+            if let coinDescription = vm.coinDescriptions, !coinDescription.isEmpty {
+                
+                VStack(alignment: .leading) {
+                    Text(coinDescription)
+                        .font(.callout)
+                        .foregroundColor(Color.theme.secondaryTextColor)
+                        .lineLimit(showFullDescription ? nil : 3)
+                    Button {
+                        withAnimation(.easeOut) {
+                            showFullDescription.toggle()
+                        }
+                    } label: {
+                        Text(showFullDescription ? " Show less..." : "Read more...")
+                            .font(.caption)
+                            .bold()
+                            .foregroundColor(.blue)
+                            .padding(.vertical, 2)
+                    }
+                    
+
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
+    }
+    private var webSection: some View {
+        VStack(alignment: .leading, spacing:15){
+            if let webstring = vm.webUrl, let url = URL(string: webstring){
+                Link("Website", destination: url)
+            }
+            if let reditstring = vm.redditUrl, let url = URL(string: reditstring){
+                Link("Reddit url", destination: url)
+            }
         }
     }
 }
